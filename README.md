@@ -1,4 +1,4 @@
-# stbl-lend — Stablecoin Micro-Lending Protocol on Polkadot Hub EVM
+# DotLend — Stablecoin Micro-Lending Protocol on Polkadot Hub EVM
 
 A production-ready DeFi micro-lending protocol written in Solidity. Users deposit WDOT as collateral and borrow a
 stablecoin (MockUSDC on testnet, real USDC on mainnet) against it.
