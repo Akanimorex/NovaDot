@@ -345,6 +345,7 @@ export default function App(): React.ReactElement {
           border: 1px solid rgba(240,40,122,0.12);
           border-radius: 20px;
           backdrop-filter: blur(20px);
+          position: relative; z-index: 50;
         }
         .brand { display: flex; align-items: center; gap: 12px; }
         .brand-name {
