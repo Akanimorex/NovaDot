@@ -1,7 +1,7 @@
 {
-    "name": "dotlend-agent",
+    "name": "novadot-agent",
     "version": "1.0.0",
-    "description": "AI health-factor monitoring agent for DotLend",
+    "description": "AI health-factor monitoring agent for NovaDot",
     "scripts": {
         "start": "npx tsx monitor.ts",
         "dev": "npx tsx monitor.ts"

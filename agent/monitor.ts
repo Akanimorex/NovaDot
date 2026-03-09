@@ -49,7 +49,7 @@ function assessRisk(address: string, hf: number): string {
 // ── Main Agent Loop ───────────────────────────────────────────────────────────
 async function main(): Promise<void> {
   console.log("═══════════════════════════════════════════════════");
-  console.log("        DotLend AI Health Monitor Agent");
+  console.log("        NovaDot AI Health Monitor Agent");
   console.log("═══════════════════════════════════════════════════");
   console.log(`  Pool address : ${LENDING_POOL_ADDRESS}`);
   console.log(`  Poll interval: ${POLL_INTERVAL_MS / 1000}s`);
