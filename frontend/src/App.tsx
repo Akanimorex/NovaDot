@@ -115,10 +115,10 @@ export default function App(): React.ReactElement {
   const [wdotPrice, setWdotPrice]       = useState<number | null>(null);
   const toastId                         = useRef(0);
 
-  function addToast(type: ToastType, title: string, message?: string) {
+  function addToast(type: ToastType, title: string, message?: string, timeout = type === "warning" ? 0 : 6000) {
     const id = ++toastId.current;
     setToasts(prev => [...prev, { id, type, title, message }]);
-    setTimeout(() => setToasts(prev => prev.filter(t => t.id !== id)), 6000);
+    if (timeout > 0) setTimeout(() => setToasts(prev => prev.filter(t => t.id !== id)), timeout);
   }
   function removeToast(id: number) { setToasts(prev => prev.filter(t => t.id !== id)); }
 
@@ -635,7 +635,14 @@ export default function App(): React.ReactElement {
         }
         .toast-success { background: rgba(15,30,20,0.92); border: 1px solid rgba(74,222,128,0.35); }
         .toast-error   { background: rgba(30,10,10,0.92); border: 1px solid rgba(248,113,113,0.35); }
-        .toast-warning { background: rgba(30,20,5,0.92);  border: 1px solid rgba(251,146,60,0.4); }
+        .toast-warning {
+          background: rgba(30,20,5,0.95); border: 1px solid rgba(251,146,60,0.5);
+          animation: slideUp 0.25s cubic-bezier(0.34,1.2,0.64,1), warningPulse 2.5s ease-in-out 0.3s infinite;
+        }
+        @keyframes warningPulse {
+          0%,100% { box-shadow: 0 12px 40px rgba(0,0,0,.5), 0 0 0 0 rgba(251,146,60,0); }
+          50%      { box-shadow: 0 12px 40px rgba(0,0,0,.5), 0 0 0 4px rgba(251,146,60,0.2); }
+        }
         .toast-info    { background: rgba(10,20,40,0.92); border: 1px solid rgba(96,165,250,0.35); }
         .toast-icon  { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
         .toast-body  { flex: 1; min-width: 0; }
